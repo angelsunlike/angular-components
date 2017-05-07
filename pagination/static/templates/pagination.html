@@ -1,0 +1,66 @@
+<div class="pagination">
+    <Ul>
+        <li ng-class="{'disable':currentPage==1}" ng-click="changePrev()"><span><<上一页</span></li>
+        <li ng-repeat="item in pageArr track by $index" ng-class="{'active':item==currentPage,'ellipsis':item=='…'}" ng-click="changePage(item)"><span>{{item}}</span></li>
+        <li ng-class="{'disable':currentPage==totalPages}" ng-click="changeNext()"><span>下一页>></span></li>
+    </Ul>
+    <div><span>到</span><input type="text" ng-model="pages"/><span>页</span></div>
+    <button ng-click="selectPages()">确定</button>
+</div>
+<style>
+    .pagination ul,.pagination{
+        display: inline-block;
+        font-size:0;
+    }
+    .pagination li{
+        display: inline-block;
+        font-size:12px;
+        border: 1px solid #ddd;
+        margin:0 5px;
+    }
+    .pagination li.disable{
+        cursor: not-allowed;
+        color:#ccc;
+    }
+    .pagination .disable:hover{
+        border: 1px solid #ddd;
+        color:#ccc;
+        cursor: not-allowed;
+    }
+    .pagination li.ellipsis{
+        border:1px solid transparent;
+        font-size:14px;
+    }
+    .pagination li:hover,.pagination li.active,.pagination button:hover{
+        border: 1px solid #f40;
+        color:#f40;
+        cursor: pointer;
+    }
+    .pagination li span{
+        display: inline-block;
+        padding:0px 12px;
+        height:30px;
+        line-height:30px;
+    }
+    .pagination>div{
+        display: inline-block;
+        font-size:12px;
+    }
+    .pagination>div span{
+        padding:0 10px;
+    }
+    .pagination>div input{
+        width:40px;
+        height:30px;
+        text-align: center;
+        border: 1px solid #ddd;
+    }
+    .pagination button{
+        height:30px;
+        font-size:12px;
+        border: 1px solid #ddd;
+        padding:0px 12px;
+        background: none;
+        cursor: pointer;
+    }
+</style>
